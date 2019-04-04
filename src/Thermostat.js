@@ -31,7 +31,7 @@ Thermostat.prototype.down = function() {
   this.temperature -= 1
 };
 
-Thermostat.prototype.psMode = function() {
+Thermostat.prototype.isPsModeOn = function() {
   return this.psModeState;
 };
 

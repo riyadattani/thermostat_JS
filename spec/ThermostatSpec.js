@@ -31,12 +31,12 @@ describe("Thermostat", function() {
 
   describe("psMode", function() {
     it("psMode is true by default", function() {
-      expect(thermostat.psMode()).toBe(true)
+      expect(thermostat.isPsModeOn()).toBe(true)
     });
 
     it("thermostat can be turned off", function() {
       thermostat.switch();
-      expect(thermostat.psMode()).toBe(false)
+      expect(thermostat.isPsModeOn()).toBe(false)
     });
 
     it("there is a maximum temp of 25 when psMode is true", function() {
