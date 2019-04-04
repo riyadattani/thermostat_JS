@@ -43,6 +43,10 @@ Thermostat.prototype.switch = function() {
   }
 };
 
+Thermostat.prototype.reset = function() {
+  this.temperature = 20;
+};
+
 // Thermostat.prototype.temperature = function() {
 //   return 20;
 // }

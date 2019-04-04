@@ -55,4 +55,12 @@ describe("Thermostat", function() {
       expect(thermostat.currentTemperature()).toEqual(32)
     });
   });
+
+  describe("#reset", function () {
+    it("should reset the temp to 25", function (){
+      thermostat.reset()
+      expect(thermostat.currentTemperature()).toEqual(20)
+    });
+  });
+
 });
