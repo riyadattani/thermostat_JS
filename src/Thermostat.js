@@ -47,29 +47,12 @@ Thermostat.prototype.reset = function() {
   this.temperature = 20;
 };
 
-// Thermostat.prototype.temperature = function() {
-//   return 20;
-// }
-
-// function Player() {
-// }
-// Player.prototype.play = function(song) {
-//   this.currentlyPlayingSong = song;
-//   this.isPlaying = true;
-// };
-//
-// Player.prototype.pause = function() {
-//   this.isPlaying = false;
-// };
-//
-// Player.prototype.resume = function() {
-//   if (this.isPlaying) {
-//     throw new Error("song is already playing");
-//   }
-//
-//   this.isPlaying = true;
-// };
-//
-// Player.prototype.makeFavorite = function() {
-//   this.currentlyPlayingSong.persistFavoriteStatus(true);
-// };
+Thermostat.prototype.energyUsage = function() {
+  if (this.temperature <= 18) {
+    return "Low Usage";
+  } else if (this.temperature >= 25) {
+    return "High Usage";
+  } else {
+    return "Medium Usage";
+  }
+};

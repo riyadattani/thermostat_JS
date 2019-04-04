@@ -39,15 +39,14 @@ describe("Thermostat", function() {
       expect(thermostat.psMode()).toBe(false)
     });
 
-    it("there is a maximum temp of 25 when psMode is true", function () {
-      // thermostat.psMode()
+    it("there is a maximum temp of 25 when psMode is true", function() {
       for (i = 1; i < 10; i++) {
         thermostat.up()
       }
       expect(thermostat.currentTemperature()).toEqual(25)
     });
 
-    it("there is a maximum temp of 32", function () {
+    it("there is a maximum temp of 32", function() {
       thermostat.switch()
       for (i = 1; i < 15; i++) {
         thermostat.up()
@@ -56,11 +55,30 @@ describe("Thermostat", function() {
     });
   });
 
-  describe("#reset", function () {
-    it("should reset the temp to 25", function (){
+  describe("#reset", function() {
+    it("should reset the temp to 25", function() {
       thermostat.reset()
       expect(thermostat.currentTemperature()).toEqual(20)
     });
   });
 
+  describe("#energyUsage", function() {
+    it("should show medium usage as default i.e. 20", function() {
+      expect(thermostat.energyUsage()).toEqual("Medium Usage")
+    });
+
+    it("should show low usage for a temp =< 17", function () {
+      for (i = 1; i < 5; i++) {
+        thermostat.down()
+      }
+      expect(thermostat.energyUsage()).toEqual("Low Usage")
+    });
+
+    it("should show high usage for a temp > 25", function () {
+      for (i = 1; i < 8; i++) {
+        thermostat.up()
+      }
+      expect(thermostat.energyUsage()).toEqual("High Usage")
+    });
+  });
 });
