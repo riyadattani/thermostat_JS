@@ -1,9 +1,13 @@
-debugger
+// debugger
 
 function Thermostat() {
   this.MINIMUM_TEMPERATURE = 10;
   this.temperature = 20;
   this.psModeState = true;
+  this.MAXIMUM_TEMPERATURE = 32;
+  this.PSM_MAX_TEMPERATURE = 25;
+  this.PSM_MIN_TEMPERATURE = 18;
+  this.DEFUALT_TEMPERATURE = 20;
 };
 
 Thermostat.prototype.isMinimumTemperature = function () {
@@ -15,10 +19,10 @@ Thermostat.prototype.currentTemperature = function() {
 };
 
 Thermostat.prototype.up = function() {
-  if (this.psModeState === false && this.temperature >= 32) {
-    this.temperature = 32;
-  } else if (this.psModeState === true && this.temperature >= 25) {
-    this.temperature = 25;
+  if (this.psModeState === false && this.temperature >= this.MAXIMUM_TEMPERATURE) {
+    this.temperature = this.MAXIMUM_TEMPERATURE;
+  } else if (this.psModeState === true && this.temperature >= this.PSM_MAX_TEMPERATURE) {
+    this.temperature = this.PSM_MAX_TEMPERATURE;
   } else {
     this.temperature += 1
   }
@@ -44,13 +48,13 @@ Thermostat.prototype.switch = function() {
 };
 
 Thermostat.prototype.reset = function() {
-  this.temperature = 20;
+  this.temperature = this.DEFUALT_TEMPERATURE;
 };
 
 Thermostat.prototype.energyUsage = function() {
-  if (this.temperature <= 18) {
+  if (this.temperature <= this.PSM_MIN_TEMPERATURE) {
     return "Low Usage";
-  } else if (this.temperature >= 25) {
+  } else if (this.temperature >= this.PSM_MAX_TEMPERATURE) {
     return "High Usage";
   } else {
     return "Medium Usage";
