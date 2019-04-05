@@ -1,3 +1,43 @@
+
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif");
+
+body {
+  color: black;
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-size: 100%;
+  font-family: 'Bree Serif', serif;
+}
+
+p {
+
+}
+
+.temp {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.buttons {
+  padding: 3px 10px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background-color: royalblue;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px #999;
+}
+
+.buttons:hover {background-color: lightblue}
+
+.psm {
+}
+
 .low-usage {
   color: green;
 }
