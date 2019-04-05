@@ -40,6 +40,7 @@ Thermostat.prototype.isPsModeOn = function() {
 };
 
 Thermostat.prototype.switch = function() {
+  this.reset()
   if (this.psModeState === true) {
     this.psModeState = false;
   } else {
@@ -53,10 +54,10 @@ Thermostat.prototype.reset = function() {
 
 Thermostat.prototype.energyUsage = function() {
   if (this.temperature <= this.PSM_MIN_TEMPERATURE) {
-    return "Low Usage";
+    return "low-usage";
   } else if (this.temperature >= this.PSM_MAX_TEMPERATURE) {
-    return "High Usage";
+    return "high-usage";
   } else {
-    return "Medium Usage";
+    return "medium-usage";
   }
 };
