@@ -17,8 +17,22 @@ $(document).ready(function() {
     updateTemperature();
   })
 
+  $('#psm-switch').on('click', function() {
+    thermostat.switch();
+    updatePSM();
+  })
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
+  };
+
+  function updatePSM() {
+    if(thermostat.isPsModeOn() === true) {
+      $("#power-saving-status").text("on")
+      $("#power-saving-button").text("off")
+    } else {
+      $("#power-saving-status").text("off")
+      $("#power-saving-button").text("on")
+    }
   };
 })
